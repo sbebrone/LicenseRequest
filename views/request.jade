@@ -1,0 +1,17 @@
+h1= title
+form.form-horizontal.well
+        .control-group
+                label(for='selectedProduct').control-label Product:
+                .controls
+                        select(name='selectedProduct')
+                                each product in products
+                                        option #{product}
+        .control-group
+                label(for='selectedPurpose').control-label Purpose:
+                .controls
+                        select(name='selectedPurpose')
+                                each product in products
+                                        option #{product}
+        .form-actions
+                button.btn.btn-primary Send
+                a(href='/').btn Cancel
