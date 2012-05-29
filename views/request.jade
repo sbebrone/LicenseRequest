@@ -1,17 +1,21 @@
 h1= title
-form.form-horizontal.well
+form.form-horizontal.well(method='post', action='/request')
         .control-group
-                label(for='selectedProduct').control-label Product:
+                label(for='request[product]').control-label Product:
                 .controls
-                        select(name='selectedProduct')
+                        select(name='request[product]')
                                 each product in products
                                         option #{product}
         .control-group
-                label(for='selectedPurpose').control-label Purpose:
+                label(for='request[purpose]').control-label Purpose:
                 .controls
-                        select(name='selectedPurpose')
-                                each product in products
-                                        option #{product}
+                        select(name='request[purpose]')
+                                each purpose in purposes
+                                        option #{purpose}
+        .control-group
+                label(for='request[comment]').control-label Comment:
+                .controls
+                        textarea(name='request[comment]')
         .form-actions
                 button.btn.btn-primary Send
                 a(href='/').btn Cancel
