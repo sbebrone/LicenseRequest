@@ -6,7 +6,11 @@
 var express = require('express')
   , routes = require('./routes');
 
+var mongoose = require('mongoose');
+
 var app = module.exports = express.createServer();
+
+mongoose.connect('mongodb://localhost/license_request');
 
 // Configuration
 

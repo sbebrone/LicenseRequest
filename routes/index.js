@@ -1,10 +1,13 @@
+var request = require('../models/request');
 
 /*
  * GET home page.
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Licenses Request' })
+	request.find(function(err,requests) {
+		res.render('index', { title: 'Licenses Request', requests:requests });
+	});
 };
 
 exports.request = function(req, res) {
@@ -14,7 +17,8 @@ exports.request = function(req, res) {
 };
 
 exports.postRequest = function(req, res) {
-	console.log(req.body.request);
-	req.flash('info','Your request has been sent successfully.');
-	res.redirect('home');
+	request.add(req.body.request, function(err, item) {
+		req.flash('info','Your request has been sent successfully.');
+		res.redirect('home');
+	});
 }

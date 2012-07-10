@@ -5,4 +5,17 @@ if info !== undefined && info != ''
                 h4.alert-header Congratulations!
                 #{info}
 p Welcome to #{title}
+table.table.table-bordered.table-condensed
+        thead
+                tr
+                        th Product
+                        th Purpose
+                        th Comment
+        tbody
+                each request in requests
+                        tr
+                                td #{request.product}
+                                td #{request.purpose}
+                                td #{request.comment}
+
 a(href='request') Request a license
