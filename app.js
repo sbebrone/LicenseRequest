@@ -4,13 +4,11 @@
  */
 
 var express = require('express')
-  , routes = require('./routes');
-
-var mongoose = require('mongoose');
+  , routes = require('./routes')
+  , mongoose = require('mongoose');
 
 var app = module.exports = express.createServer();
 
-mongoose.connect('mongodb://localhost/license_request');
 
 // Configuration
 
@@ -26,7 +24,8 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+	mongoose.connect('mongodb://localhost/license_request');
+	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.configure('production', function(){
@@ -43,6 +42,7 @@ app.dynamicHelpers({
 // Routes
 
 app.get('/', routes.index);
+app.get('/request/:id', routes.editRequest);
 app.get('/request', routes.request);
 app.post('/request', routes.postRequest);
 

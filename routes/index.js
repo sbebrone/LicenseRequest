@@ -21,4 +21,12 @@ exports.postRequest = function(req, res) {
 		req.flash('info','Your request has been sent successfully.');
 		res.redirect('home');
 	});
-}
+};
+
+exports.editRequest = function(req, res) {
+	request.findById(req.params.id, function(err, item) {
+		var products = ['Office 2010', 'Visual Studio 2010', 'Other'];
+		var purposes = ['Production','Training/Certification', 'Demo', 'Other'];
+		res.render('request', { title: 'Request', products: products, purposes: purposes })
+	});
+};

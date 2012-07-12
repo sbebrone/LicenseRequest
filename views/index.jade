@@ -11,11 +11,14 @@ table.table.table-bordered.table-condensed
                         th Product
                         th Purpose
                         th Comment
+                        td
         tbody
                 each request in requests
                         tr
                                 td #{request.product}
                                 td #{request.purpose}
                                 td #{request.comment}
+                                td 
+                                        a(href='request/#{request._id}') Edit
 
 a(href='request') Request a license
