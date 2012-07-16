@@ -1,0 +1,6 @@
+h1= title
+form.form-horizontal.well(method='put', action='/request')
+        !=partial('_form')
+        .form-actions
+                button.btn.btn-primary Save
+                a(href='/').btn Cancel

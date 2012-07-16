@@ -10,8 +10,8 @@ exports.index = function(req, res){
 	});
 };
 
-exports.request = function(req, res) {
-	res.render('request', { title: 'Request', products: req.products, purposes: req.purposes })
+exports.createRequest = function(req, res) {
+	res.render('request/create', { title: 'Request', products: req.products, purposes: req.purposes })
 };
 
 exports.postRequest = function(req, res) {
@@ -23,6 +23,6 @@ exports.postRequest = function(req, res) {
 
 exports.editRequest = function(req, res) {
 	request.findById(req.params.id, function(err, item) {
-		res.render('request', { title: 'Request', products: req.products, purposes: req.purposes })
+		res.render('request/edit', { title: 'Request', products: req.products, purposes: req.purposes })
 	});
 };

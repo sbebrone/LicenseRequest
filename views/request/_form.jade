@@ -1,0 +1,16 @@
+.control-group
+        label(for='request[product]').control-label Product:
+        .controls
+                select(name='request[product]')
+                        each product in products
+                                option #{product}
+.control-group
+        label(for='request[purpose]').control-label Purpose:
+        .controls
+                select(name='request[purpose]')
+                        each purpose in purposes
+                                option #{purpose}
+.control-group
+        label(for='request[comment]').control-label Comment:
+        .controls
+                textarea(name='request[comment]')

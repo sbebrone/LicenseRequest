@@ -52,7 +52,7 @@ var loadLists =  function(req, res, next) {
 
 app.get('/', routes.index);
 app.get('/request/:id',loadLists, routes.editRequest);
-app.get('/request',loadLists, routes.request);
+app.get('/request',loadLists, routes.createRequest);
 app.post('/request', routes.postRequest);
 
 app.listen(3000, function(){
