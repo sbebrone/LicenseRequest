@@ -39,11 +39,20 @@ app.dynamicHelpers({
 	}
 });
 
+// middleware
+var loadLists =  function(req, res, next) {
+	var products = ['Office 2010', 'Visual Studio 2010', 'Other'];
+	var purposes = ['Production','Training/Certification', 'Demo', 'Other'];
+	req.products = products;
+	req.purposes = purposes;
+	next();
+};
+
 // Routes
 
 app.get('/', routes.index);
-app.get('/request/:id', routes.editRequest);
-app.get('/request', routes.request);
+app.get('/request/:id',loadLists, routes.editRequest);
+app.get('/request',loadLists, routes.request);
 app.post('/request', routes.postRequest);
 
 app.listen(3000, function(){

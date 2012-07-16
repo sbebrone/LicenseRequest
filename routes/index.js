@@ -11,9 +11,7 @@ exports.index = function(req, res){
 };
 
 exports.request = function(req, res) {
-	var products = ['Office 2010', 'Visual Studio 2010', 'Other'];
-	var purposes = ['Production','Training/Certification', 'Demo', 'Other'];
-	res.render('request', { title: 'Request', products: products, purposes: purposes })
+	res.render('request', { title: 'Request', products: req.products, purposes: req.purposes })
 };
 
 exports.postRequest = function(req, res) {
@@ -25,8 +23,6 @@ exports.postRequest = function(req, res) {
 
 exports.editRequest = function(req, res) {
 	request.findById(req.params.id, function(err, item) {
-		var products = ['Office 2010', 'Visual Studio 2010', 'Other'];
-		var purposes = ['Production','Training/Certification', 'Demo', 'Other'];
-		res.render('request', { title: 'Request', products: products, purposes: purposes })
+		res.render('request', { title: 'Request', products: req.products, purposes: req.purposes })
 	});
 };
